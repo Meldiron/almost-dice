@@ -1,16 +1,19 @@
 {
-  "name": "starter-template",
+  "name": "starter-htmx",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.js",
+  "main": "src/main.jsx",
   "type": "module",
   "scripts": {
-    "format": "prettier --write ."
-  },
-  "dependencies": {
-    "node-appwrite": "^9.0.0"
+    "format": "prettier --write .",
+    "build": "tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "prettier": "^3.0.0"
+    "bun-types": "latest",
+    "prettier": "^3.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "typed-html": "^3.0.1"
   }
 }
