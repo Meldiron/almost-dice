@@ -17,3 +17,12 @@ export function requestFromContext(context) {
 
   return request;
 };
+
+export async function responseForContext(context, response) {
+  const headers = {};
+  for (const pair of response.headers.entries()) {
+    headers[pair[0]] = pair[1];
+  }
+
+  return context.res.send(await response.text(), response.status, headers);
+};
