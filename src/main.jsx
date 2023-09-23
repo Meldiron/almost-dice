@@ -15,9 +15,13 @@ export default async (context) => {
 
   if(context.req.path === '/orders') {
     return context.res.html(
-      <Layout>
-        <p>Orders</p>
-      </Layout>
+      <p>Orders</p>
+    );
+  }
+
+  if(context.req.path === '/home') {
+    return context.res.html(
+      <h1>Home</h1>
     );
   }
   
