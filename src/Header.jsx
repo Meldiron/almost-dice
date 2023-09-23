@@ -1,3 +1,4 @@
+import * as elements from 'typed-html';
 export function Header() {
   return (
     <header>

@@ -1,3 +1,4 @@
+import * as elements from 'typed-html';
 import { Header } from "./Header";
 
 export function Layout({ children }) {
