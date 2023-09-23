@@ -13,6 +13,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "hono": "^3.7.2",
     "typed-html": "^3.0.1"
   }
 }
