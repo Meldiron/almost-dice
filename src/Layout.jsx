@@ -13,7 +13,7 @@ export function Layout({ children }) {
       <body>
         <Header />
         <hr />
-        <div id="page"></div>
+        <div id="page" hx-trigger="load" hx-get="/"></div>
       </body>
     </html>
   );
