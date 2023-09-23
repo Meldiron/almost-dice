@@ -6,6 +6,7 @@
     "target": "esnext",
     "jsx": "react",
     "jsxFactory": "elements.createElement",
+    "skipLibCheck": true,
     "allowJs": true
   },
   "include": ["./src/**/*.*"]
