@@ -11,8 +11,6 @@
     "skipLibCheck": true,
     "jsx": "react",
     "jsxFactory": "elements.createElement",
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "allowJs": true
   },
   "include": ["./src/**/*.*"]

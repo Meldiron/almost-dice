@@ -1,4 +1,4 @@
-import { Header } from "./Header";
+import { Header } from "./Header.jsx";
 
 export function Layout({ children }) {
   return (
