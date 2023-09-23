@@ -1,5 +1,5 @@
 import * as elements from "typed-html";
-import { Layout } from "../Layout";
+import { Layout } from "../components/Layout";
 
 export function Home(app) {
   app.get("/", (c) => {
