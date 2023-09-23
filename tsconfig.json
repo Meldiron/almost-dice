@@ -6,7 +6,6 @@
     "target": "esnext",
     "jsx": "react",
     "jsxFactory": "elements.createElement",
-    "jsxFragmentFactory": "elements.Fragment",
     "allowJs": true
   },
   "include": ["./src/**/*.*"]
