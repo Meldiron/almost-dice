@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/main.jsx",
-  "type": "module",
   "scripts": {
     "format": "prettier --write .",
     "build": "tsc -p tsconfig.json"

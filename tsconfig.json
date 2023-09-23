@@ -2,15 +2,11 @@
   "compilerOptions": {
     "outDir": "./dist",
     "lib": ["ESNext"],
-    "module": "esnext",
+    "module": "commonjs",
     "target": "esnext",
-    "moduleResolution": "bundler",
-    "moduleDetection": "force",
-    "strict": true,
-    "downlevelIteration": true,
-    "skipLibCheck": true,
     "jsx": "react",
     "jsxFactory": "elements.createElement",
+    "jsxFragmentFactory": "elements.Fragment",
     "allowJs": true
   },
   "include": ["./src/**/*.*"]
