@@ -24,7 +24,7 @@ export function Layout({ children }) {
           <div class="shrink-0">
             <Header />
           </div>
-          <main class="flex-1 h-full py-6 mx-auto max-w-5xl w-full">
+          <main id="page" class="flex-1 h-full py-6 mx-auto max-w-5xl w-full">
             {children}
           </main>
           <div class="shrink-0">

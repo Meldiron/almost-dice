@@ -11,9 +11,11 @@ export function Header() {
       </div>
       <header class="border-b-2 border-stone-200 py-4">
         <div class="mx-auto max-w-5xl flex items-center justify-between space-x-4">
-          <a href="/" class="font-bold text-xl text-stole-900 tracking-wide">
-            Almost Dices
-          </a>
+          <div hx-boost="true">
+            <a href="/" class="font-bold text-xl text-stole-900 tracking-wide">
+              Almost Dices
+            </a>
+          </div>
           <div class="flex items-center space-x-3">
             <button class="bg-amber-400 rounded-xl text-stone-900 px-6 font-semibold py-2">
               Register
