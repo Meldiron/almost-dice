@@ -1,4 +1,6 @@
-# ⚡ Node.js Starter Function
+> 🚧 Documentation not updated yet
+
+# ⚡ HTMX Starter Function
 
 A simple starter function. Edit `src/main.js` to get started and create something awesome! 🚀
 
