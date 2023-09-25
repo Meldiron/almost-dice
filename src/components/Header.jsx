@@ -1,5 +1,5 @@
 import * as elements from "typed-html";
-export function Header() {
+export function Header({ isLoggedIn }) {
   return (
     <div>
       <div class="bg-amber-400  p-1">
@@ -16,14 +16,33 @@ export function Header() {
               Almost Dices
             </a>
           </div>
-          <div class="flex items-center space-x-3">
-            <button class="bg-amber-400 rounded-xl text-stone-900 px-6 font-semibold py-2">
-              Register
-            </button>
-            <button class="bg-white rounded-xl text-stone-900 px-6 font-semibold py-2">
-              Login
-            </button>
-          </div>
+          {isLoggedIn ? (
+            <div class="flex items-center space-x-3">
+              <button
+                hx-swap="none"
+                hx-post="/logout"
+                type="button"
+                class="bg-white rounded-xl text-stone-900 px-6 font-semibold py-2"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div hx-boost="true" class="flex items-center space-x-3">
+              <a
+                href="/register"
+                class="bg-amber-400 rounded-xl text-stone-900 px-6 font-semibold py-2"
+              >
+                Register
+              </a>
+              <a
+                href="/login"
+                class="bg-white rounded-xl text-stone-900 px-6 font-semibold py-2"
+              >
+                Login
+              </a>
+            </div>
+          )}
         </div>
       </header>
     </div>

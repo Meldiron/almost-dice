@@ -4,6 +4,10 @@ import { Games } from "../pages/Home";
 
 export function Home(app) {
   app.get("/", (c) => {
-    return c.html(<Layout><Games /></Layout>);
+    return c.html(
+      <Layout user={c.get("user")}>
+        <Games />
+      </Layout>,
+    );
   });
 }

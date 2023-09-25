@@ -4,6 +4,10 @@ import { Dice } from "../pages/Dice";
 
 export function Dice(app) {
   app.get("/dice", (c) => {
-    return c.html(<Layout><Dice /></Layout>);
+    return c.html(
+      <Layout user={c.get("user")}>
+        <Dice />
+      </Layout>,
+    );
   });
 }

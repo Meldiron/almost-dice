@@ -5,7 +5,7 @@ export function requestFromContext(context) {
   }
 
   let body = context.req.bodyRaw;
-  if(context.req.method === 'GET' || context.req.method === 'HEAD') {
+  if (context.req.method === "GET" || context.req.method === "HEAD") {
     body = undefined;
   }
 
@@ -16,7 +16,7 @@ export function requestFromContext(context) {
   });
 
   return request;
-};
+}
 
 export async function responseForContext(context, response) {
   const headers = {};
@@ -25,4 +25,4 @@ export async function responseForContext(context, response) {
   }
 
   return context.res.send(await response.text(), response.status, headers);
-};
+}

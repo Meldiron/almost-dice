@@ -2,7 +2,7 @@ import * as elements from "typed-html";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-export function Layout({ children }) {
+export function Layout({ children, user }) {
   return (
     <html lang="en">
       <head>
@@ -22,7 +22,7 @@ export function Layout({ children }) {
       <body class="bg-stone-100" style="font-family: 'Exo', sans-serif;">
         <div class="min-h-screen flex flex-col">
           <div class="shrink-0">
-            <Header />
+            <Header isLoggedIn={user !== null} />
           </div>
           <main id="page" class="flex-1 h-full py-6 mx-auto max-w-5xl w-full">
             {children}

@@ -53,7 +53,7 @@ export function Dice() {
           <div class="shrink-0 mt-6 bg-white rounded-lg p-6">
             <div class="w-full grid grid-cols-12 gap-6">
               <div class="col-span-4">
-                <label class="font-semibold">Multiplier:</label>
+                <label class="font-semibold">Multiplier</label>
                 <input
                   type="number"
                   value="2"
@@ -61,7 +61,7 @@ export function Dice() {
                 />
               </div>
               <div class="col-span-4">
-                <label class="font-semibold">Roll Over:</label>
+                <label class="font-semibold">Roll Over</label>
                 <div class="mt-2 flex items-center justify-center space-x-2">
                   <button class="p-2 bg-white text-stone-900 border border-stone-200 rounded-md">
                     <svg
@@ -88,7 +88,7 @@ export function Dice() {
                 </div>
               </div>
               <div class="col-span-4">
-                <label class="font-semibold">Win Chance:</label>
+                <label class="font-semibold">Win Chance</label>
                 <input
                   type="number"
                   value="52"

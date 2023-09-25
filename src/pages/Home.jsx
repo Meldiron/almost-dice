@@ -13,7 +13,7 @@ export function Games() {
       <div class="col-span-4">
         <Game
           title="Crash"
-          description="Game for guessing when growing vector randomly crashes."
+          description="Guess when growing vector randomly crashes."
           playable={false}
         />
       </div>
