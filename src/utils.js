@@ -16,6 +16,9 @@ export function throwIfMissing(obj, keys) {
   }
 }
 
+/**
+ * Convert Open Runtimes context to JavaScript native Request
+ */
 export function requestFromContext(context) {
   const headers = new Headers();
   for (const header of Object.keys(context.req.headers)) {
@@ -36,6 +39,9 @@ export function requestFromContext(context) {
   return request;
 }
 
+/**
+ * Convert native JavaScript Response to Open Runtimes context response
+ */
 export async function responseForContext(context, response) {
   const headers = {};
   for (const pair of response.headers.entries()) {

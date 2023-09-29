@@ -13,6 +13,8 @@ export function Layout({ children, user, wallet }) {
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="//unpkg.com/alpinejs" defer></script>
 
+        <script src="/dice.js"></script>
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -23,7 +25,7 @@ export function Layout({ children, user, wallet }) {
       <body class="bg-stone-100" style="font-family: 'Exo', sans-serif;">
         <div class="min-h-screen flex flex-col">
           <div class="shrink-0">
-            <Header balance={wallet.balance} isLoggedIn={user !== null} />
+            <Header balance={wallet ? wallet.balance : 0} isLoggedIn={user !== null} />
           </div>
           <main id="page" class="flex-1 h-full py-6 mx-auto max-w-5xl w-full">
             {children}

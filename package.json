@@ -12,13 +12,14 @@
     "watch": "nodemon --watch src -e js,jsx,html,json  --exec 'npm run cleanup && npm run build && npm run dev'"
   },
   "devDependencies": {
+    "appwrite-function-utils": "^0.5.0",
     "bun-types": "latest",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.0",
-    "typescript": "^5.2.2",
-    "appwrite-function-utils": "^0.5.0"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@hono/node-server": "^1.2.0",
     "appwrite": "^13.0.0",
     "axios": "^1.5.0",
     "hono": "^3.7.2",

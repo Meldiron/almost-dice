@@ -18,8 +18,8 @@ export function Header({ isLoggedIn, balance }) {
           </div>
            {isLoggedIn && (
               <div class="flex items-center">
-                <p class="rounded-md px-2 py-1 bg-amber-400 rounded-r-none text-stone-900 uppercase font-light">Wallet</p>
-                <p hx-get="/api/wallet" hx-trigger="reload-wallet from:body" class="rounded-md px-2 py-1 bg-amber-200 rounded-l-none text-amber-900 font-semibold tracking-wide">{balance} 🍪</p>
+                <p class="rounded-md px-2 py-1 bg-stone-800 rounded-r-none text-stone-100 uppercase font-light">Wallet</p>
+                <p hx-get="/api/wallet" hx-trigger="reload-wallet from:body" class="rounded-md px-2 py-1 bg-white rounded-l-none text-stone-900 font-semibold tracking-wide">{balance} 🍪</p>
               </div>
            )}
           {isLoggedIn ? (
