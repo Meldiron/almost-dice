@@ -16,6 +16,12 @@ export function Header({ isLoggedIn }) {
               Almost Dices
             </a>
           </div>
+           {isLoggedIn && (
+              <div class="flex items-center">
+                <p class="rounded-md px-2 py-1 bg-amber-400 rounded-r-none text-stone-900 uppercase font-light">Wallet</p>
+                <p class="rounded-md px-2 py-1 bg-amber-200 rounded-l-none text-amber-900 font-semibold tracking-wide">999 🍪</p>
+              </div>
+           )}
           {isLoggedIn ? (
             <div class="flex items-center space-x-3">
               <button

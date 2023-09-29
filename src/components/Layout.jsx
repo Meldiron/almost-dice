@@ -11,6 +11,7 @@ export function Layout({ children, user }) {
         <title>Almost Dices</title>
         <script src="https://unpkg.com/htmx.org@1.9.6"></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="//unpkg.com/alpinejs" defer></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

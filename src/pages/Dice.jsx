@@ -6,24 +6,25 @@ export function Dice() {
         Dices
       </h1>
 
-      <div class="w-full grid grid-cols-12 gap-6">
+      <div x-data="{ maxBet: 999, bet: 1, separator: 52, multiplier: 2, winChance: 48, direction: 'over' }" class="w-full grid grid-cols-12 gap-6">
         <div class="col-span-4 bg-white rounded-lg p-6">
-          <form class="h-full flex flex-col space-y-8">
+          <div class="h-full flex flex-col space-y-8">
             <div class="shrink-0">
               <label class="font-semibold">Bet amount</label>
               <input
+                x-model="bet"
                 type="number"
                 class="mt-2 w-full p-2 bg-white border border-stone-300 rounded-md"
               />
 
               <div class="flex items-center space-x-2 mt-2">
-                <button class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md">
+                <button x-on:click="bet = Math.min(maxBet, bet/2)" class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md">
                   1/2
                 </button>
-                <button class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md">
+                <button x-on:click="bet = Math.min(maxBet, bet*2)" class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md">
                   2x
                 </button>
-                <button class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md">
+                <button x-on:click="bet = maxBet" class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md">
                   Max
                 </button>
               </div>
@@ -31,7 +32,7 @@ export function Dice() {
 
             <div class="shrink-0">
               <label class="font-semibold">Profit on win</label>
-              <p>12</p>
+              <p x-text="bet * multiplier"></p>
             </div>
 
             <div class="h-full flex-1 flex items-end">
@@ -39,7 +40,7 @@ export function Dice() {
                 Place bet
               </button>
             </div>
-          </form>
+          </div>
         </div>
         <div class="col-span-8 flex flex-col">
           <div class="h-full flex-1 bg-white rounded-lg p-6">
@@ -55,15 +56,15 @@ export function Dice() {
               <div class="col-span-4">
                 <label class="font-semibold">Multiplier</label>
                 <input
+                  x-bind:value="multiplier"
                   type="number"
-                  value="2"
                   class="mt-2 w-full p-2 bg-white border border-stone-300 rounded-md"
                 />
               </div>
               <div class="col-span-4">
-                <label class="font-semibold">Roll Over</label>
+                <label class="font-semibold">Roll <span x-text="direction === 'over' ? 'Over' : 'Under'"></span></label>
                 <div class="mt-2 flex items-center justify-center space-x-2">
-                  <button class="p-2 bg-white text-stone-900 border border-stone-200 rounded-md">
+                  <button x-on:click="direction = direction === 'over' ? 'under' : 'over'" class="p-2 bg-white text-stone-900 border border-stone-200 rounded-md">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -80,9 +81,9 @@ export function Dice() {
                     </svg>
                   </button>
                   <input
+                    x-bind:value="separator"
                     type="number"
                     disabled={true}
-                    value="52"
                     class="w-full p-2 bg-stone-200 border border-stone-300 rounded-md"
                   />
                 </div>
@@ -90,8 +91,8 @@ export function Dice() {
               <div class="col-span-4">
                 <label class="font-semibold">Win Chance</label>
                 <input
+                  x-bind:value="winChance"
                   type="number"
-                  value="52"
                   class="mt-2 w-full p-2 bg-white border border-stone-300 rounded-md"
                 />
               </div>

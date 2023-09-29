@@ -5,6 +5,7 @@
   "main": "src/main.jsx",
   "scripts": {
     "format": "prettier --write .",
+    "setup": "node src/setup.js",
     "build": "tsc -p tsconfig.json",
     "cleanup": "lsof -i :4200 | awk 'NR!=1 {print $2}' | xargs kill",
     "dev": "appwrite-function-utils dev dist/main.js 4200",

@@ -1,6 +1,6 @@
 > 🚧 Documentation not updated yet
 
-# ⚡ HTMX Starter Function
+# 🎲 Almost Dice
 
 A simple starter function. Edit `src/main.js` to get started and create something awesome! 🚀
 
@@ -41,7 +41,7 @@ Sample `200` Response:
 | ----------------- | ------------- |
 | Runtime           | Node (18.0)   |
 | Entrypoint        | `src/main.js` |
-| Build Commands    | `npm install` |
+| Build Commands    | `npm install && npm run setup` |
 | Permissions       | `any`         |
 | Timeout (Seconds) | 15            |
 
