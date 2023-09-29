@@ -1,5 +1,16 @@
-import { Client, Databases } from "node-appwrite";
-import { throwIfMissing } from "./utils.js";
+const { Client, Databases } = require("node-appwrite");
+
+function throwIfMissing(obj, keys) {
+  const missing = [];
+  for (let key of keys) {
+    if (!(key in obj) || !obj[key]) {
+      missing.push(key);
+    }
+  }
+  if (missing.length > 0) {
+    throw new Error(`Missing required fields: ${missing.join(", ")}`);
+  }
+}
 
 async function setup() {
   throwIfMissing(process.env, ["APPWRITE_API_KEY"]);
@@ -15,16 +26,16 @@ async function setup() {
 
   // Setup Wallets
   try {
-    await databases.create('main', 'main');
-  } catch(_err) {}
+    await databases.create("main", "main");
+  } catch (_err) {}
 
   try {
-    await databases.createCollection('main', 'wallets', 'wallets')
-  } catch(_err) {}
+    await databases.createCollection("main", "wallets", "wallets");
+  } catch (_err) {}
 
   try {
-    await databases.createFloatAttribute('main', 'wallets', 'balance', true);
-  } catch(_err) {}
+    await databases.createFloatAttribute("main", "wallets", "balance", true);
+  } catch (_err) {}
 
   console.log(`Setup script finished.`);
 }

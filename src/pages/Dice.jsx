@@ -36,7 +36,7 @@ export function Dice() {
             </div>
 
             <div class="h-full flex-1 flex items-end">
-              <button class="w-full bg-amber-400 rounded-md text-stone-900 px-6 font-semibold py-2">
+              <button hx-post="/dice" class="w-full bg-amber-400 rounded-md text-stone-900 px-6 font-semibold py-2">
                 Place bet
               </button>
             </div>

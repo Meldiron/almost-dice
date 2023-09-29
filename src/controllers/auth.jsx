@@ -12,13 +12,13 @@ export function Auth(app) {
   app.get("/auth/header", (c) => {
     const user = c.get("user");
     return c.html(
-      <Header isLoggedIn={user !== null} />
+      <Header balance={c.get("wallet").balance} isLoggedIn={user !== null} />
     );
   });
 
   app.get("/auth/login", GuestsOnly, (c) => {
     return c.html(
-      <Layout user={c.get("user")}>
+      <Layout user={c.get("user")} wallet={c.get("wallet")}>
         <Login />
       </Layout>,
     );
@@ -65,7 +65,7 @@ export function Auth(app) {
 
   app.get("/auth/register", GuestsOnly, (c) => {
     return c.html(
-      <Layout user={c.get("user")}>
+      <Layout user={c.get("user")} wallet={c.get("wallet")}>
         <Register />
       </Layout>,
     );

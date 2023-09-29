@@ -1,9 +1,7 @@
 import * as elements from "typed-html";
 
 export function User(app) {
-  console.log("Define2");
   app.use("*", async (c, next) => {
-    console.log("Get2");
     const account = c.get("sdkClientAccount");
 
     try {

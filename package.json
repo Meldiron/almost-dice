@@ -2,7 +2,6 @@
   "name": "starter-htmx",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "src/main.jsx",
   "scripts": {
     "format": "prettier --write .",

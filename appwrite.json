@@ -1,0 +1,24 @@
+{
+    "projectId": "almost-dice",
+    "projectName": "Almost Dice",
+    "functions": [
+        {
+            "$id": "65113dd8a0200fa8fc66",
+            "name": "Website",
+            "runtime": "node-18.0",
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "dist/main.js",
+            "commands": "npm install && npm run setup && npm run build",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "path": "./"
+        }
+    ]
+}
