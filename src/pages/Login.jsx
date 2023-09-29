@@ -10,7 +10,7 @@ export function Login({ children }) {
           id="login-form"
           hx-swap="outerHTML"
           hx-select="#login-form"
-          hx-post="/login"
+          hx-post="/auth/login"
           class="h-full flex flex-col space-y-8"
         >
           <div>

@@ -1,7 +1,7 @@
 import * as elements from "typed-html";
 export function Header({ isLoggedIn }) {
   return (
-    <div>
+    <div hx-get="/auth/header" hx-trigger="reload-header from:body">
       <div class="bg-amber-400  p-1">
         <div class="mx-auto max-w-5xl text-center">
           <p class="uppercase text-stone-900 font-bold">
@@ -20,7 +20,7 @@ export function Header({ isLoggedIn }) {
             <div class="flex items-center space-x-3">
               <button
                 hx-swap="none"
-                hx-post="/logout"
+                hx-post="/auth/logout"
                 type="button"
                 class="bg-white rounded-xl text-stone-900 px-6 font-semibold py-2"
               >
@@ -30,13 +30,13 @@ export function Header({ isLoggedIn }) {
           ) : (
             <div hx-boost="true" class="flex items-center space-x-3">
               <a
-                href="/register"
+                href="/auth/register"
                 class="bg-amber-400 rounded-xl text-stone-900 px-6 font-semibold py-2"
               >
                 Register
               </a>
               <a
-                href="/login"
+                href="/auth/login"
                 class="bg-white rounded-xl text-stone-900 px-6 font-semibold py-2"
               >
                 Login

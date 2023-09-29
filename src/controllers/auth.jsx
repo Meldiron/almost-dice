@@ -5,9 +5,18 @@ import { Error as ErrorComponent } from "../components/Error";
 import axios from "axios";
 import { deleteCookie } from "hono/cookie";
 import { Register } from "../pages/Register";
+import { Header } from "../components/Header";
+import { GuestsOnly, UsersOnly } from "../middlewares/user";
 
 export function Auth(app) {
-  app.get("/login", (c) => {
+  app.get("/auth/header", (c) => {
+    const user = c.get("user");
+    return c.html(
+      <Header isLoggedIn={user !== null} />
+    );
+  });
+
+  app.get("/auth/login", GuestsOnly, (c) => {
     return c.html(
       <Layout user={c.get("user")}>
         <Login />
@@ -15,7 +24,7 @@ export function Auth(app) {
     );
   });
 
-  app.post("/login", async (c) => {
+  app.post("/auth/login", GuestsOnly, async (c) => {
     const body = await c.req.parseBody();
     const { email, password } = body;
 
@@ -40,10 +49,10 @@ export function Auth(app) {
         return cookie.split(".cloud.appwrite.io").join(host);
       });
 
-      return c.html(<Login />, {
-        headers: {
-          "Set-Cookie": cookiesArray.join(", "),
-        },
+      return c.html(<Login />, 200, {
+        "Set-Cookie": cookiesArray.join(", "),
+        "HX-Trigger": "reload-header",
+        "HX-Location": "/"
       });
     } catch (err) {
       return c.html(
@@ -54,7 +63,7 @@ export function Auth(app) {
     }
   });
 
-  app.get("/register", (c) => {
+  app.get("/auth/register", GuestsOnly, (c) => {
     return c.html(
       <Layout user={c.get("user")}>
         <Register />
@@ -62,7 +71,7 @@ export function Auth(app) {
     );
   });
 
-  app.post("/register", async (c) => {
+  app.post("/auth/register", GuestsOnly, async (c) => {
     const body = await c.req.parseBody();
     const { email, password, password2 } = body;
 
@@ -105,10 +114,10 @@ export function Auth(app) {
         return cookie.split(".cloud.appwrite.io").join(host);
       });
 
-      return c.html(<Register />, {
-        headers: {
-          "Set-Cookie": cookiesArray.join(", "),
-        },
+      return c.html(<Register />, 200, {
+        "Set-Cookie": cookiesArray.join(", "),
+          "HX-Trigger": "reload-header",
+          "HX-Location": "/"
       });
     } catch (err) {
       console.log(err);
@@ -121,7 +130,7 @@ export function Auth(app) {
     }
   });
 
-  app.post("/logout", async (c) => {
+  app.post("/auth/logout", UsersOnly, async (c) => {
     const client = c.get("sdkClientAccount");
 
     await client.deleteSession("current");
@@ -136,6 +145,9 @@ export function Auth(app) {
     deleteCookie(c, cookieNames[0]);
     deleteCookie(c, cookieNames[1]);
 
-    return c.html(<p>OK</p>);
+    return c.html(<p>OK</p>, 200, {
+      "HX-Trigger": "reload-header",
+      "HX-Location": "/"
+    });
   });
 }

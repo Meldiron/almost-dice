@@ -10,7 +10,7 @@ export function Register({ children }) {
           id="register-form"
           hx-swap="outerHTML"
           hx-select="#register-form"
-          hx-post="/register"
+          hx-post="/auth/register"
           class="h-full flex flex-col space-y-8"
         >
           <div>
