@@ -1,3 +1,7 @@
+function round(number) {
+  return Math.round(number * 100) / 100;
+}
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("dice", () => ({
     maxBet: 999,
@@ -7,14 +11,19 @@ document.addEventListener("alpine:init", () => {
     winChance: 48,
     direction: "over",
 
+    setBet(event) {
+      this.bet = +event.target.value;
+      this.bet = isNaN(bet) ? 1 : bet;
+    },
+
     setMultiplier(event) {
       const multiplier = +event.target.value;
 
-      this.multiplier = multiplier;
+      this.multiplier = isNaN(multiplier) ? 1 : multiplier;
 
       this.winChance = 1/this.multiplier*100;
       this.winChance -= this.winChance * 0.04;
-      this.winChance = Math.floor(this.winChance);
+      this.winChance = round(this.winChance);
 
       if(this.direction === "over") {
         this.separator = 100 - this.winChance;
@@ -26,11 +35,11 @@ document.addEventListener("alpine:init", () => {
     setWinChance(event) {
       const winChance = +event.target.value;
 
-      this.winChance = winChance;
+      this.winChance = isNaN(winChance) ? 48 : winChance;
 
       this.multiplier = 100/this.winChance;
       this.multiplier -= this.multiplier * 0.04;
-      this.multiplier = Math.floor(this.multiplier);
+      this.multiplier = round(this.multiplier);
 
       if(this.direction === "over") {
         this.separator = 100 - this.winChance;

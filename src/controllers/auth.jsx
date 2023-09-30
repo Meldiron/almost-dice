@@ -120,8 +120,6 @@ export function Auth(app) {
           "HX-Location": "/"
       });
     } catch (err) {
-      console.log(err);
-      console.log(err.message);
       return c.html(
         <Register>
           <ErrorComponent message={err.message} />

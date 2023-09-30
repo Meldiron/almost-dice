@@ -12,26 +12,27 @@ export function Dice() {
             <div class="shrink-0">
               <label class="font-semibold">Bet amount</label>
               <input
-                x-model="bet"
+                x-on:change="setBet"
+                x-bind:value="bet"
                 type="number"
                 class="mt-2 w-full p-2 bg-white border border-stone-300 rounded-md"
               />
 
               <div class="flex items-center space-x-2 mt-2">
                 <button
-                  x-on:click="bet = Math.floor(Math.min(maxBet, bet/2))"
+                  x-on:click="bet = round(Math.min(maxBet, bet/2))"
                   class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md"
                 >
                   1/2
                 </button>
                 <button
-                  x-on:click="bet = Math.floor(Math.min(maxBet, bet*2))"
+                  x-on:click="bet = round(Math.min(maxBet, bet*2))"
                   class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md"
                 >
                   2x
                 </button>
                 <button
-                  x-on:click="bet = Math.floor(maxBet)"
+                  x-on:click="bet = round(maxBet)"
                   class="p-1 w-full bg-white text-stone-900 border border-stone-200 rounded-md"
                 >
                   Max
@@ -41,7 +42,7 @@ export function Dice() {
 
             <div class="shrink-0">
               <label class="font-semibold">Profit on win</label>
-              <p x-text="Math.floor(bet * multiplier)"></p>
+              <p x-text="round(bet * multiplier)"></p>
             </div>
 
             <div class="h-full flex-1 flex items-end">
@@ -68,7 +69,7 @@ export function Dice() {
               <div class="col-span-4">
                 <label class="font-semibold">Multiplier</label>
                 <input
-                  x-on:input="setMultiplier"
+                  x-on:change="setMultiplier"
                   x-bind:value="multiplier"
                   type="number"
                   class="mt-2 w-full p-2 bg-white border border-stone-300 rounded-md"
@@ -110,7 +111,7 @@ export function Dice() {
               <div class="col-span-4">
                 <label class="font-semibold">Win Chance</label>
                 <input
-                  x-on:input="setWinChance"
+                  x-on:change="setWinChance"
                   x-bind:value="winChance"
                   type="number"
                   class="mt-2 w-full p-2 bg-white border border-stone-300 rounded-md"
